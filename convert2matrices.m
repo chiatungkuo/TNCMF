@@ -26,13 +26,13 @@ data(:, DROPOFF_TIME_COL) = round(data(:, DROPOFF_TIME_COL)/TIME_GRANULARITY);
 
 % throw away erroneous data points
 % ignore trips spanning less than 1 minute or more than 3 hours (i.e. 180 minutes)
-% ignore trips spanning more than 0.5 degrees of latitude & longitude
+% ignore trips spanning more than 1 degrees of latitude & longitude
 tripTime = data(:, DROPOFF_TIME_COL) - data(:, PICKUP_TIME_COL);
 data = data(tripTime > 0 & tripTime <= 180, :);
 latDist = abs(data(:, DROPOFF_LAT_COL) - data(:, PICKUP_LAT_COL));
-data = data(latDist <= 0.5/LAT_LONG_GRANULARITY, :);
+data = data(latDist <= 1/LAT_LONG_GRANULARITY, :);
 longDist = abs(data(:, DROPOFF_LONG_COL) - data(:, PICKUP_LONG_COL));
-data = data(longDist <= 0.5/LAT_LONG_GRANULARITY, :);
+data = data(longDist <= 1/LAT_LONG_GRANULARITY, :);
 
 % base of indices when put into matrices (i.e. first index corresponds to
 % base + 1 in real data measurement)
