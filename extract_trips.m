@@ -1,4 +1,4 @@
-function trips = extractTrips(filepath, timeBreak)
+function trips = extract_trips(filepath, timeBreak)
 % Extracts trip records from a given file containing GPS traces
 % Inputs
 %   filepath: string containing the path to the file

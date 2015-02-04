@@ -11,7 +11,7 @@ numRecords = 0;
 
 for i = 1:length(files)
     if strfind(files(i).name, 'new') == 1   % this looks for all file names with 'new' which were the default naming from data source
-        trips = extractTrips(strcat(path, files(i).name));
+        trips = extract_trips(strcat(path, files(i).name));
         numTrips = size(trips, 1);
         data(numRecords+1:numRecords+numTrips, 1:6) = trips;
         numRecords = numRecords + numTrips;
