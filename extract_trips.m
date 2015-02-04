@@ -39,7 +39,7 @@ for i = 1:length(indicesToBreak)
 end
 
 % process the last sub-data
-subdata = data(currIndex:end, :);
+subdata = data(currIndex+1:end, :);
 result = process(subdata);
 trips(numTrips+1:numTrips+size(result, 1), :) = result;
 numTrips = numTrips + size(result, 1);
